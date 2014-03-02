@@ -1,8 +1,8 @@
 {
     "_id": "course",
     "_type": "course",
-    "title": "Welcome to Adapt Learning - v1.0.0",
-    "body": "This release is aimed at developers who want to get involved with the Adapt Open Source initiative. Select a menu option below to find out more.",
+    "title": "Refactoring Challenge - v1.0.0",
+    "body": "This is a simple demo of the Adapt Framework that, besides being a introduction to this framework, aims to introduce the concept and some of the techniques for refactoring existing code.",
     "buttons": {
         "submit": "Submit",
         "reset": "Reset",
