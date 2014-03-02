@@ -1,5 +1,13 @@
 [
     {
+        "_id":"a-00",
+        "_parentId":"co-00",
+        "_type":"article",
+        "_classes":"",
+        "title":"Refactoring Challenge demo course",
+        "body":"Welcome to the <b>Refactoring Challenge</b> demo course.  This course is currently under construction and we are looking for <b>collaborators</b>.  Want to join the team?  Send an email to <a href='mailto:alex.miranda@bravisoftware.com'> alex.miranda@bravisoftware.com</a>."
+    },
+    {
         "_id":"a-05",
         "_parentId":"co-05",
         "_type":"article",
