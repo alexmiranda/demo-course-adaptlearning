@@ -5,8 +5,26 @@
         "_type": "block",
         "_classes": "",
         "title": "Introduction",
-        "body": "buah buah buah...",
+        "body": "You’ve been given the mission to complete the refactoring challenge.  In order to succeed in this mission you will need to complete the of the steps below. <br /><br />Please take note of the steps you may have completed during the workshop.",
         "_trackingId": 20
+    },
+    {
+        "_id": "b-01",
+        "_parentId": "a-00",
+        "_type": "block",
+        "_classes": "",
+        "title": "Before you get started",
+        "body": "First make sure you have the following tools installed.",
+        "_trackingId": 21
+    },
+    {
+        "_id": "b-02",
+        "_parentId": "a-00",
+        "_type": "block",
+        "_classes": "",
+        "title": "Roll up your sleeves",
+        "body": "Let's jump straight onto our mission.",
+        "_trackingId": 22
     },
     {
         "_id": "b-05",

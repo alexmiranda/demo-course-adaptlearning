@@ -1,13 +1,114 @@
 [
     {
-        "_id":"c-00",
+        "_id":"c-00-00",
         "_parentId":"b-00",
         "_type":"component",
         "_component":"text",
         "_classes":"",
-        "_layout":"left",
-        "title":"Title of our very first component",
-        "body":"Whoo - if we get this rendering, we've made the big time"
+        "_layout":"span",
+        "title":"Disclaimer",
+        "body":"I don’t intend this to be a tutorial on how to solve this challenge.  While it contains some tips I expect you to take into account, and that I judge will be of some help, I don’t intend to step on your toes, so I leave up to you to decide what has to be done in order to complete the challenge.  Although it is written is a step-by-step manner, you don’t need to follow the lines.  I do, however, suggest you go step by step for the sake of guaranteeing you finish all the tasks."
+    },
+    {
+        "_id":"c-01-01",
+        "_parentId":"b-01",
+        "_type":"component",
+        "_component":"accordion",
+        "_classes":"",
+        "_layout":"span",
+        "title":"",
+        "body":"",
+        "items": [
+            {
+                "alt": "Prerequisites",
+                "title": "Prerequisites",
+                "body": "<ol><li>Visual Studio 2010 or later version</li><li>NUnit (<a href='http://www.nunit.org'>http://www.nunit.org</a>)</li><li>(optional) TestDriven.net Test Runner - you can always use NUnit Test Runner (or any other tool) outside Visual Studio, if you prefer</li></ol><br />ReSharper is optional, however, if you use it daily, I strongly recommend you try to use it during the workshop too.  You might get to know new things you’ll want to try out later."
+            },
+            {
+                "alt": "Set up your environment",
+                "title": "Set up your environment",
+                "body": "<ol><li>Go to <a href='https://github.com/alexmiranda/trip-service-kata'>https://github.com/alexmiranda/trip-service-kata</a> and clone the project - or download the zip version - to your machine.</li><li>Open the project with Visual Studio</li><li>Familiarise yourself with the project structure and code</li><li>Have a look into the class TripService and try to guess what it does, and what it is for</li><li>Now you are able to proceed.  Go and add NUnit and Add References to the project TripServiceKata into the test project called TripServiceKata.Test</li></ol>"
+            }]
+    },
+    {
+        "_id":"c-02-03",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"Write your first unit test",
+        "body":"What would be your first unit test? And why?<br />What is hampering you from completing the most simple of unit tests in this scenario?<br />Remember the instructions given during the workshop about the shortest and deepest branch. <br />Remember to give each unit test a meaningful name, that reflects its purpose and intention."
+    },
+    {
+        "_id":"c-02-04",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"Get rid of the dependencies in order to get your first unit test green",
+        "body":"Are you ready for your first refactoring? I hear you say ‘Yes’, so now remember: <br /><br /><quote>A refactoring is a change in code that does not affect its purpose or intention, thus it should not change the outcome of the System Under Test* (SUT), yet it <i>does</i> add super cool new things, such as readability and testability.</quote><br /><br />What are the ways you found out to isolate the UserSession dependency from the code at hand?  Compare this with what a Mock framework does. <br />Have your Unit Test Code* changed due to the changes you’ve made in your production code*?"
+    },
+    {
+        "_id":"c-02-05",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"Carry on unit testing",
+        "body":"Now that you have finally got your first unit test pass, you’ve got to write new unit tests to improve your Test Code Coverage *.  You need to keep your unit tests simple enough not to get unmotivated with the task at hand.  It’s not that simple, but you’ll soon find out that taking this approach is the safest way to change your code.<br />Remember the two ways in which people change their code:<br /><br /><ul><li>Write unit test and refactor</li><li>Change and pray</li></ul><br />You have already felt like any change you make causes a new bug, things stopped working and you don’t know why the hell they did, haven’t you? So you won’t like taking the 2nd approach, will you?  Say out loud (in your mind): <b>I WANNA WRITE UNIT TESTS FIRST!</b><br /><br />Now think of the next unit test you would write.  Here goes some tips: <br /><br /><ul><li>It must be the shortest branch you’ve not taken yet</li><li>If you have a code coverage tool, check out what is not covered yet by running your Unit Tests with the coverage tool.  It will help you identify what still needs to be covered.</li><li>Read through the lines in your production code identifying statements that defines or helps defining the method’s return value, exceptions which are thrown, values which are returned from dependencies, etc.</li></ul>"
+    },
+    {
+        "_id":"c-02-05",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"Get your unit test doubles to work dynamically",
+        "body":"If you have chosen to use a class which extends from TripService and overrides the definition for GetLoggedInUser, you may want to reuse the same class in different scenarios.  That is, instead of repeating the same process on and on, you can avoid creating a huge list of test doubles* by creating one that works like a marionette *.<br />Think of ways that could be achieved.  Try to reach as many solutions as you can and write down the pros and cons of each alternative.  It’ll help you choose the solutions that fits better in your scenario.  Here goes a list of alternative I expect you to evaluate, but don’t limit yourself to the list:<br /><br /><ul><li>Passing a delegate in the class constructor or setter after instantiation</li><li>Setting a property containing the expected logged in User, on every unit test</li><li>Create an interface which will be responsible for providing the logged in user and use polymorphism to pass different implementations each time your need a valid logged in user</li><li>Get your overridden method to return a mocked out object with proper setup to dynamically return the proper user</li><li>Any combinations of the options above</li></ul><br /><br />Compare your final code with what a Mock framework does for you.  What are the differences?  Where goes all the setting up, function references (delegates, Action<> and Func<>), callbacks and logic behind a Mock object if you were using a (decent) Mock framework?"
+    },
+    {
+        "_id":"c-02-06",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"Clean up the mess",
+        "body":"Have you noticed how similar the unit tests you’ve written so far are?  Do you think they need some organisation and cleaning up?<br /><br />What I always say is that unit test code is as important as your production code, inasmuch as you’ll need to visit it again (a thousand times, believe me), maintain it and change it with the same frequency, and it also goes under most of the motivations to be changed as the production code.  It is, somehow, even more important when it comes to understanding what your production code does, as it works as a low level documentation for developers. You shall never overlook the power of unit tests :)<br /><br />Go and extract some fields, add a setup method* to your unit test class.  When you think it is enough to stop refactoring the test code, take a look to note how easier they are to read now.  Well done!"
+    },
+    {
+        "_id":"c-02-07",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"Take time to think of what you’ve accomplished",
+        "body":"Hey, you’ve done a pretty good job so far.  Be proud of yourself, that is way better the way you used to do it, isn’t it?  You should now prepare yourself for the next steps, but there is always room for improvement, right?<br /><br />Let’s take this moment as an opportunity to understand what is the real value behind unit tests. <br /><br />You might’ve noticed that, in order to your unit tests do what they need to do, they contain a lot of constants and weirdos such as NULL being passed as parameter arguments and variables being initialised with objects constructed for a sole purpose of fulfilling your unit tests inputs*.<br /><br />Think now what that really means.  You see how passing NULL in place of method parameters are defying you read your tests the way you want?  They’re hampering out identifying what the NULL parameter actually is, because without looking further into your code (or inspecting using your IDE facilities), you cannot make sure what the type of the argument it really is.<br /><br />You need to reveal your intentions.  Every programmer who will look at your test code in the future, will get the some troubles to understand what a NULL in the middle of the test code means, because you didn’t make it clear to them.<br /><br />Think over what would be a variable of type User, whose initial value is NULL, and is expected in place of an method called GetLoggedInUser?  Hey, I know that!  If you’ve worked professionally as a software developer for a brief time at least, you may have heard people talking about Guest or Anonymous users, referring to them as they were any user who is not identified by the system in a given moment in time.  Go ahead and introduce this concept as a constant, make clear for your colleagues who will read your unit tests, really expecting they will help them out.<br /><br />Repeat the same process for every NULL or object initialisation in your code.  Extract their concepts and give them an appropriate name.  You see? That’s wonderful."
+    },
+    {
+        "_id":"c-02-08",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"A second dependency shows up!",
+        "body":"Now it's time to work on getting rid of UserDAO, which is a second dependency of our TripService class.  This is a static class, that for now, we can't really touch, because it's not intended to be tested in the TripServiceTests class.<br /><br />You might be writing a testing such as ShouldReturnFriendTripsWhenUsersAreFriend.  For now, let's apply the same process we did with UserSession.  And later we'll come back and give it a try.<br /><br />f you chose to write an override method that changes the behaviour of TripDAO.FindTripsByUser(user), according to your expectations in a test case, you'll want to write a method that returns the user's trips, being the user the one you passed as a parameter to the GetTripsByUser method.  You should avoid to use a mock object, and that's a good example of where you should not use a mock.  Instead use a real objects, of class User, as they will not change the behaviour of your tests, nor your production code.  The real object will facilitate other developers to familiarise with the API they shall use, including the objects classes they use to interact with your service.<br /><br />Pay much attention on whether you might be abusing of Mock objects, as in most of the cases, they'll not be needed, therefore they only add unnecessary complexity to your test code.  You must think of them as a tool, that is appropriate for a very specific job.  Use it with caution."
+    },
+    {
+        "_id":"c-02-09",
+        "_parentId":"b-02",
+        "_type":"component",
+        "_component":"text",
+        "_classes":"",
+        "_layout":"span",
+        "title":"So now what? It's time to refactor",
+        "body":"By this point, you might've reached a 100% test code coverage, that's great!  Now you can make any change you want to the system under test, and if you introduce any change that breaks the unit tests, you'll know right away that something is wrong and you'll need either solving it or reverting back your goddamn changes.  Sounds cool, doesn't it?  And it fact it is.<br /><br />The biggest advantage of this approach when you hit this point, is that now you're on easy street.  With all those unit tests in place no change will result in an outrageous change in behaviour, therefore no more maddening bugs being raised on a Friday afternoon, except if they've been already there =)"
     },
     {
         "_id":"c-05",
