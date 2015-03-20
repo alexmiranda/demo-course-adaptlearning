@@ -257,7 +257,7 @@ module.exports = function(grunt) {
 
         concurrent: {
             server: ['connect:server', 'open:server', 'watch'],
-            spoor: ['connect:spoorOffline', 'open:spoor', 'watch']
+            spoor: ['connect:spoorOffline', 'watch']
         },
 
         connect: {
